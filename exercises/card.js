@@ -34,6 +34,20 @@ class Deck{
 
 		//takes in nothing
 		//returns nothing
+
+		var tempArray = [];
+		var numArray = [];
+		for (var index = 0; index < this.deckArray.length; index++) {
+			numArray.push(index);
+			var currentCard = this.deckArray.pop();
+			tempArray.push(currentCard);
+		}
+		while (numArray.length > 0) {
+			var randomIndex = Math.floor(Math.random() * numArray.length);
+			var randomNum = numArray[randomIndex];
+			numArray.splice(randomIndex, 1);
+			this.deckArray.push(tempArray[randomNum]);
+		}
 	}
 	getCardCount(){
 		//gets the current amount of cards stored
